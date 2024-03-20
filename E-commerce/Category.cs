@@ -28,14 +28,7 @@ namespace E_commerce
             category.Add(name);
         
         }
-        /*public Category(string name )
-        {
-            this.Id = Idincrement++;
-            this.Name = name;
-            products = new List<Products>();
-        }
-        */
-
+        
         public void AddProduct(Products product) {
 
             if (product == null)
@@ -83,44 +76,38 @@ namespace E_commerce
         
         }
 
-        public void RemoveProduct(Products product) {
+        public Products RemoveProduct(string Name) {
 
-            if (products.Contains(product))
+            Products P = SerachProdcut(Name);
+            if (P != null )
             {
-                products.Remove(product);
-                Console.WriteLine($" {product.Name} Removed seccssuffully  ");
-
+                products.Remove(P);
+                Console.WriteLine($" Secssefully Deleted {Name} ");
             }
             else
             {
-                Console.WriteLine(" Product not exist ");
+                Console.WriteLine(" Product not Found ");
             }
-            /*
-             (we can by for loop aslo )
-            for (int i = 0; i < products.Count; i++)
+            return P; 
+        }
+        
+
+
+        public Products SerachProdcut(string name) {
+
+            foreach (var item in products)
             {
-                if (products[i] == product)
+                if (item.Name == name)
                 {
-                    products.Remove(product);
+                    Console.WriteLine($" product {name} is Exist ");
+                    return item;
                 }
             }
-            */
+            Console.WriteLine(" Product name is not Found  ");
+            return null;            
         }
 
-        public Products SerachProdcut(Products product) {
-
-            if (products.Contains(product))
-            {
-                Console.WriteLine($" prodcut found : {product}");
-                return product;
-            }
-            else
-            {
-                Console.WriteLine("Product not found.");
-                return null;
-            }
         
-        }
 
         
     }

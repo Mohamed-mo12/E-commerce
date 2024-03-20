@@ -9,7 +9,7 @@ namespace E_commerce
     class Products
     {
         private static int IDincremnet = 0;
-        public int Id { get; set; }
+        public int Id { get; private set; }
         public string Name { get; private set; }
         public decimal Price { get; private set; }
         public int Model { get;  private set; }
